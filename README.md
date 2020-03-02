@@ -8,7 +8,7 @@
     * *Input*: Click on roll button
     * *Output*: "4"
   2. When the "Dice" is rolled, it adds to a current total pool.
-    * *Input*: Current pool: "10" (click on roll = 3)
+    * *Input*: Current pool: "10" (click on roll) = 3
     * *Output*: Current pool: "13"
   3. When end turn button is clicked, Current pool is added to current players total score, then cleared.
     * *Input*: Current pool: "18" (click end turn button)
