@@ -6,7 +6,7 @@ describe('Dice', () => {
 
   test('should roll a random number between 1-6', () => {
     var currentRoll = new Dice();
-    var player = new PlayerScore();
+    var player = new PlayerScore("name");
     expect(currentRoll.rollDice(player)).toBeGreaterThanOrEqual(1);
     expect(currentRoll.rollDice(player)).toBeLessThanOrEqual(6);
   });
@@ -15,12 +15,12 @@ describe('Dice', () => {
 
 describe('PlayerScore', () => {
 
-  // test('Name should be given to idetify current player', () => {
-  //   var currentScore = new PlayerScore();
-  // });
+  test('should add the tempScore to the total to the current player', () => {
+    var currentScore = new PlayerScore();
+  });
 
   test('When rolled, the dice should add to a total current score', () => {
-    var currentScore = new PlayerScore();
+    var currentScore = new PlayerScore("name");
     var currentRoll = new Dice();
     expect(currentScore.tempScore).toBeGreaterThanOrEqual(1);
   });

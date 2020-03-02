@@ -8,6 +8,13 @@ Dice.prototype.rollDice = function (player) {
   return side;
 };
 
-export function PlayerScore() {
+export function PlayerScore(name) {
   this.tempScore = 0;
+  this.totalScore = 0;
+  this.name = name;
+};
+
+PlayerScore.prototype.addScore = function (player) {
+  player.totalScore += player.tempScore;
+  return player.totalScore;
 };
