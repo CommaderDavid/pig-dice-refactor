@@ -37,3 +37,12 @@ describe('PlayerScore', () => {
     expect(player.tempScore).toBeLessThanOrEqual(6);
   });
 });
+
+describe('PlayerTurn', () => {
+
+  test('should switch players when the end turn button is clicked', () => {
+    var turn = new PlayerTurn();
+    turn.switchTurn();
+    expect(turn.currentPlayer).toEqual(true);
+  });
+});

@@ -25,5 +25,8 @@ $(document).ready(function() {
   $("#end").click(function() {
     $("#player1-total").empty().append(player1.addScore());
     diceSpin.tempReset(player1);
+
+    $("#current-side").empty();
+    $("#current-score").empty();
   });
 });

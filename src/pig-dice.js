@@ -29,4 +29,5 @@ export function PlayerTurn() {
 
 PlayerTurn.prototype.switchTurn = function () {
   this.currentPlayer = !this.currentPlayer;
+  console.log(this.currentPlayer);
 };
