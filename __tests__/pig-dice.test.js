@@ -15,13 +15,21 @@ describe('Dice', () => {
 
 describe('PlayerScore', () => {
 
-  test('should add the tempScore to the total to the current player', () => {
-    var currentScore = new PlayerScore();
+  var player
+  var currentRoll
+
+  beforeEach(() => {
+    player = new PlayerScore("name");
+    currentRoll = new Dice();
   });
 
-  test('When rolled, the dice should add to a total current score', () => {
-    var currentScore = new PlayerScore("name");
-    var currentRoll = new Dice();
-    expect(currentScore.tempScore).toBeGreaterThanOrEqual(1);
+  test('should add the tempScore to the total to the current player', () => {
+    player.tempScore = 10;
+    expect(player.addScore()).toEqual(10);
+  });
+
+  test('When rolled, the dice should add to a current temp score', () => {
+    currentRoll.rollDice(player);
+
   });
 });

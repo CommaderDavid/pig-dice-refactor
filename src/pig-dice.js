@@ -14,7 +14,7 @@ export function PlayerScore(name) {
   this.name = name;
 };
 
-PlayerScore.prototype.addScore = function (player) {
-  player.totalScore += player.tempScore;
-  return player.totalScore;
+PlayerScore.prototype.addScore = function() {
+  this.totalScore += this.tempScore;
+  return this.totalScore;
 };
