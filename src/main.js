@@ -22,7 +22,15 @@ $(document).ready(function() {
 
   });
 
+  var playerSwitch;
+
   $("#end").click(function() {
+    if (currentTurn === false) {
+      playerSwitch = player1;
+    } else {
+      playerSwitch = player2;
+    }
+
     $("#player1-total").empty().append(player1.addScore());
     diceSpin.tempReset(player1);
 
