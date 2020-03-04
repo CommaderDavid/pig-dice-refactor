@@ -57,4 +57,13 @@ describe('PlayerTurn', () => {
     expect(turn.currentPlayer).toEqual(true);
   });
 
+  test('should end current players turn when a one is rolled', () => {
+    var dice = new Dice();
+    var turn = new PlayerTurn();
+    dice.number = 1;
+    turn.switchTurn();
+    expect(dice.number).toEqual(1);
+    expect(turn.currentPlayer).toEqual(true);
+  });
+
 });
