@@ -12,20 +12,20 @@ $(document).ready(function() {
   var player2 = new PlayerScore("Player 2");
   var currentTurn = new PlayerTurn();
 
-  var playerSwitch;
 
   $("#roll").click(function() {
-    if (currentTurn === false) {
+    var playerSwitch;
+    if (currentTurn.currentPlayer === false) {
       playerSwitch = player1;
     } else {
       playerSwitch = player2;
     }
 
-    var currentRoll = diceSpin.rollDice(player1);
+    var currentRoll = diceSpin.rollDice(playerSwitch);
     // change later to switch players.
-    var currentScore1 = player1.tempScore;
+    var currentScore = playerSwitch.tempScore;
     $("#current-side").empty().append(currentRoll);
-    $("#current-score").empty().append(currentScore1);
+    $("#current-score").empty().append(currentScore);
 
   });
 
