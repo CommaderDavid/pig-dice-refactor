@@ -21,9 +21,9 @@ $(document).ready(function() {
       playerSwitch = player2;
     }
 
-    var currentRoll = diceSpin.rollDice(playerSwitch);
-    // change later to switch players.
+    var currentRoll = diceSpin.rollDice(playerSwitch, currentTurn);
     var currentScore = playerSwitch.tempScore;
+
     if (currentRoll === 1) {
       $("#current-side").empty().append("Oh.... Too Bad!");
       $("#current-score").empty().append("Looosser!");

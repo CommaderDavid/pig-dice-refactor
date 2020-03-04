@@ -6,12 +6,12 @@ Dice.prototype.tempReset = function (player) {
   player.tempScore = 0;
 };
 
-Dice.prototype.rollDice = function (player) {
+Dice.prototype.rollDice = function (player, turn) {
   var side = Math.floor(Math.random() * 6) + 1;
   player.tempScore += side;
   if (side === 1) {
     this.tempReset(player);
-    // turn.switchTurn();
+    turn.switchTurn();
   }
   return side;
 };
