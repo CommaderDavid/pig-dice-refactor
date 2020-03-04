@@ -5,13 +5,24 @@ import { PlayerTurn } from './../src/pig-dice.js';
 
 describe('Dice', () => {
 
+  var player
+  var currentRoll
+
+  beforeEach(() => {
+    player = new PlayerScore("name");
+    currentRoll = new Dice();
+  });
+
   test('should roll a random number between 1-6', () => {
-    var currentRoll = new Dice();
-    var player = new PlayerScore("name");
     expect(currentRoll.rollDice(player)).toBeGreaterThanOrEqual(1);
     expect(currentRoll.rollDice(player)).toBeLessThanOrEqual(6);
   });
 
+  test('when one is rolled, should clear the temp score of current player', () => {
+    player.tempScore = 15;
+    currentRoll.tempReset(player);
+    expect(player.tempScore).toEqual(0);
+  });
 });
 
 describe('PlayerScore', () => {
@@ -45,4 +56,5 @@ describe('PlayerTurn', () => {
     turn.switchTurn();
     expect(turn.currentPlayer).toEqual(true);
   });
+
 });
