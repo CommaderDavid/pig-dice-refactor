@@ -12,7 +12,14 @@ $(document).ready(function() {
   var player2 = new PlayerScore("Player 2");
   var currentTurn = new PlayerTurn();
 
+  var playerSwitch;
+
   $("#roll").click(function() {
+    if (currentTurn === false) {
+      playerSwitch = player1;
+    } else {
+      playerSwitch = player2;
+    }
 
     var currentRoll = diceSpin.rollDice(player1);
     // change later to switch players.
@@ -22,17 +29,16 @@ $(document).ready(function() {
 
   });
 
-  var playerSwitch;
-
   $("#end").click(function() {
-    if (currentTurn === false) {
-      playerSwitch = player1;
+    if (currentTurn.currentPlayer === false) {
+      $("#player1-total").empty().append(player1.addScore());
+      diceSpin.tempReset(player1);
     } else {
-      playerSwitch = player2;
+      $("#player2-total").empty().append(player2.addScore());
+      diceSpin.tempReset(player2);
     }
 
-    $("#player1-total").empty().append(player1.addScore());
-    diceSpin.tempReset(player1);
+    currentTurn.switchTurn();
 
     $("#current-side").empty();
     $("#current-score").empty();
