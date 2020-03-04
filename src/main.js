@@ -12,13 +12,17 @@ $(document).ready(function() {
   var player2 = new PlayerScore("Player 2");
   var currentTurn = new PlayerTurn();
 
+  var playerSwitch;
 
   $("#roll").click(function() {
-    var playerSwitch;
     if (currentTurn.currentPlayer === false) {
       playerSwitch = player1;
+      $("#player2-total").removeClass("current-player");
+      $("#player1-total").addClass("current-player");
     } else {
       playerSwitch = player2;
+      $("#player1-total").removeClass("current-player");
+      $("#player2-total").addClass("current-player");
     }
 
     var currentRoll = diceSpin.rollDice(playerSwitch, currentTurn);
@@ -36,16 +40,20 @@ $(document).ready(function() {
 
   $("#end").click(function() {
     if (currentTurn.currentPlayer === false) {
-      $("#player1-total").empty().append(player1.addScore());
-      diceSpin.tempReset(player1);
+      $("#player1-total").empty().append(playerSwitch.addScore());
     } else {
-      $("#player2-total").empty().append(player2.addScore());
-      diceSpin.tempReset(player2);
+      $("#player2-total").empty().append(playerSwitch.addScore());
     }
 
+    diceSpin.tempReset(playerSwitch);
     currentTurn.switchTurn();
 
     $("#current-side").empty();
     $("#current-score").empty();
+
+    if (playerSwitch.totalScore >= 100) {
+      $("#winner").show();
+      $("#winner").empty().append(playerSwitch.name + " Wins!");
+    }
   });
 });

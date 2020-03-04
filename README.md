@@ -22,6 +22,9 @@
   6. When a "1" is rolled, switch players.
     * *Input*: Roll = "1"
     * *Output*: "Players 2 turn"
+  7. When one player reaches 100, they win.
+    * *Input*: Player 1 score: "100"
+    * *Output*: "Player 1 Wins!"
 ### Setup
 *
 ### Contact
