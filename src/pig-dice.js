@@ -9,10 +9,10 @@ Dice.prototype.tempReset = function (player) {
 Dice.prototype.rollDice = function (player) {
   var side = Math.floor(Math.random() * 6) + 1;
   player.tempScore += side;
-  // if (side === 1) {
-  //   this.tempReset(player);
-  //   turn.switchTurn();
-  // }
+  if (side === 1) {
+    this.tempReset(player);
+    // turn.switchTurn();
+  }
   return side;
 };
 

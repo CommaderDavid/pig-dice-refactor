@@ -24,8 +24,13 @@ $(document).ready(function() {
     var currentRoll = diceSpin.rollDice(playerSwitch);
     // change later to switch players.
     var currentScore = playerSwitch.tempScore;
-    $("#current-side").empty().append(currentRoll);
-    $("#current-score").empty().append(currentScore);
+    if (currentRoll === 1) {
+      $("#current-side").empty().append("Oh.... Too Bad!");
+      $("#current-score").empty().append("Looosser!");
+    } else {
+      $("#current-side").empty().append(currentRoll);
+      $("#current-score").empty().append(currentScore);
+    }
 
   });
 
